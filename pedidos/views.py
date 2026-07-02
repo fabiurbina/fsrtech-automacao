@@ -47,6 +47,8 @@ def home(request):
 
     )
 
+from django.contrib import messages
+
 def login_view(request):
 
     if request.method == 'POST':
@@ -54,18 +56,20 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+        print(f"Usuário: {username}")
+
         user = authenticate(
             request,
             username=username,
             password=password
         )
 
+        print(f"Authenticate: {user}")
+
         if user is not None:
             login(request, user)
             return redirect('/')
 
-    return render(request, 'login.html')
+        messages.error(request, "Usuário ou senha inválidos.")
 
-def logout_view(request):
-    logout(request)
-    return redirect('/login/')
+    return render(request, 'login.html')
