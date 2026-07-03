@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator 
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from .mysql_service import consultar_pedidos_cliente
@@ -29,7 +30,13 @@ def home(request):
         pedido["descricao"] = status["descricao"]
         pedido["cor"] = status["cor"]
         
-    
+        
+        paginator = Paginator(pedidos_cliente, 10)
+
+        page = request.GET.get("page")
+
+        pedidos_cliente = paginator.get_page(page)
+        
 
         pedidos_cliente.append(pedido)
 
