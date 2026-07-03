@@ -137,7 +137,6 @@ Meus Pedidos
 
                 {% for pedido in pedidos %}
 
-
             <tr>
 
                 <td class="cliente">
@@ -156,27 +155,29 @@ Meus Pedidos
 
                 <td class="text-center">
 
-                    <div class="alert alert-{{ pedido.cor }} status mb-0">
+                <div class="alert alert-{{ pedido.cor }} status mb-0">
 
-                        {{ pedido.titulo }}
+                    {{ pedido.titulo }}
 
-                    </div>
+                </div>
 
-                </td>
+            </td>
 
-                    <button
-                        type="button"
-                        class="btn btn-sm btn-outline-info"
-                        data-bs-toggle="popover"
-                        data-bs-placement="left"
-                        data-bs-title="Orientação Viesano"
-                        data-bs-content="{{ pedido.descricao }}">
+            <td class="text-center">
 
-                        ℹ️
+                <button
+                    type="button"
+                    class="btn btn-sm btn-outline-info"
+                    data-bs-toggle="popover"
+                    data-bs-placement="left"
+                    data-bs-title="Orientação Viesano"
+                    data-bs-content="{{ pedido.descricao }}">
 
-                    </button>
+                    ℹ️
 
-                </td>
+                </button>
+
+            </td>
 
             </tr>
 
