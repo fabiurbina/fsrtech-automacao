@@ -204,6 +204,51 @@ Meus Pedidos
 
 <div class="text-center mt-4 mb-5">
 
+
+<nav class="mt-4">
+
+    <ul class="pagination justify-content-center">
+
+        {% if pedidos.has_previous %}
+
+        <li class="page-item">
+            <a class="page-link" href="?page={{ pedidos.previous_page_number }}">
+                ← Anterior
+            </a>
+        </li>
+
+        {% endif %}
+
+        <li class="page-item disabled">
+
+            <span class="page-link">
+
+                Página {{ pedidos.number }} de {{ pedidos.paginator.num_pages }}
+
+            </span>
+
+        </li>
+
+        {% if pedidos.has_next %}
+
+        <li class="page-item">
+
+            <a class="page-link" href="?page={{ pedidos.next_page_number }}">
+
+                Próxima →
+
+            </a>
+
+        </li>
+
+        {% endif %}
+
+    </ul>
+
+</nav>
+
+
+
 <a href="/logout/" class="btn btn-outline-danger px-4">
 
 Sair

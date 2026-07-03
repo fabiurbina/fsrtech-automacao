@@ -32,7 +32,7 @@ def home(request):
         
         pedidos_cliente.append(pedido)
         
-    paginator = Paginator(pedidos_cliente, 10)
+    paginator = Paginator(pedidos_cliente, 20)
 
     page = request.GET.get("page")
 
