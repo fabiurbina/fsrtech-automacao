@@ -161,11 +161,14 @@ Meus Pedidos
                 <td>
 
                     <button
-                        class="btn btn-sm btn-outline-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#modal{{ forloop.counter }}">
+                        type="button"
+                        class="btn btn-sm btn-outline-info"
+                        data-bs-toggle="popover"
+                        data-bs-placement="left"
+                        data-bs-title="Orientação Viesano"
+                        data-bs-content="{{ pedido.descricao }}">
 
-                        Ver orientação
+                        ℹ️
 
                     </button>
 
