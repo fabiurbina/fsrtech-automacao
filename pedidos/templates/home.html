@@ -61,10 +61,14 @@
         }
 
         .status{
-            min-width:170px;
+            display:inline-block;
+            min-width:120px;
+            max-width:140px;
+            padding:6px 10px;
             text-align:center;
-            border-radius:10px;
+            border-radius:8px;
             font-weight:600;
+            font-size:13px;
         }
 
         .cliente{
@@ -98,13 +102,13 @@ Portal do Cliente
 
 <div class="card-body">
 
-<h5 class="mb-4">
+<h5 class="mb-4 text-center">
 Meus Pedidos
 </h5>
 
         <div class="table-responsive">
 
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle text-center">
 
             <thead>
 
@@ -150,13 +154,15 @@ Meus Pedidos
 
                 <td>{{ pedido.data_previsao|date:"d/m/Y" }}</td>
 
-                <td>
-                    <div class="alert alert-{{ pedido.cor }} status mb-0">
-                        {{ pedido.titulo }}
-                    </div>
-                </td>
+                <td class="text-center">
 
-                <td>
+                    <div class="alert alert-{{ pedido.cor }} status mb-0">
+
+                        {{ pedido.titulo }}
+
+                    </div>
+
+                </td>
 
                     <button
                         type="button"
