@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator 
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
-from .mysql_service import consultar_pedidos_cliente
+from .mysql_service import consultar_pedidos_cliente, consultar_todos_pedidos
 from .status_service import interpretar_status
 
 
@@ -10,10 +10,18 @@ from .status_service import interpretar_status
 def home(request):
 
     cpf_cnpj = request.user.username
-
+    
+    email = request.user.email.lower()
+    
     print("CPF logado:", cpf_cnpj)
 
-    pedidos = consultar_pedidos_cliente(cpf_cnpj)
+    if "@viesano" in email:
+
+        pedidos = consultar_todos_pedidos()
+
+    else:
+
+        pedidos = consultar_pedidos_cliente(cpf_cnpj)
     
     pedidos_cliente = []
 
