@@ -11,6 +11,8 @@ def home(request):
 
     cpf_cnpj = request.user.username
     
+    numero_pedido = request.GET.get("pedido")
+    
     email = request.user.email.lower()
     
     print("CPF logado:", cpf_cnpj)
@@ -39,6 +41,15 @@ def home(request):
         pedido["cor"] = status["cor"]
         
         pedidos_cliente.append(pedido)
+        
+    # FILTRO
+    if numero_pedido:
+
+        pedidos_cliente = [
+            pedido
+            for pedido in pedidos_cliente
+            if str(pedido["numero_pedido"]) == numero_pedido
+    ]
         
     paginator = Paginator(pedidos_cliente, 20)
 
