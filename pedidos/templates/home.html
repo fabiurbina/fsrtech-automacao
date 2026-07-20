@@ -118,16 +118,16 @@
             </div>
 
             <div class="col-md-4">
-                <select class="form-select" name="descricao">
-                    <option value="">Todos os Status</option>
+                <select class="form-select" name="titulo">
+                <option value="">Todos os Status</option>
 
-                    {% for status in status_disponiveis %}
-                        <option value="{{ status }}"
-                            {% if request.GET.descricao == status %}selected{% endif %}>
-                            {{ status }}
-                        </option>
-                    {% endfor %}
-                </select>
+                {% for status in status_disponiveis %}
+                    <option value="{{ status }}"
+                        {% if request.GET.titulo == status %}selected{% endif %}>
+                        {{ status }}
+                    </option>
+                {% endfor %}
+            </select>
             </div>
 
             <div class="col-md-2">

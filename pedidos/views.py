@@ -12,7 +12,7 @@ def home(request):
     cpf_cnpj = request.user.username
 
     numero_pedido = request.GET.get("pedido")
-    descricao = request.GET.get("descricao", "").strip()
+    titulo = request.GET.get("titulo", "").strip()
 
     email = request.user.email.lower()
 
@@ -40,7 +40,7 @@ def home(request):
 
     # Lista de status disponíveis para o filtro
     status_disponiveis = sorted(
-        {pedido["descricao"] for pedido in pedidos_cliente}
+        {pedido["titulo"] for pedido in pedidos_cliente}
     )
 
     # FILTRO POR NÚMERO DO PEDIDO
@@ -52,11 +52,11 @@ def home(request):
         ]
 
     # FILTRO POR STATUS
-    if descricao:
+    if titulo:
         pedidos_cliente = [
             pedido
             for pedido in pedidos_cliente
-            if pedido["descricao"] == descricao
+            if pedido["titulo"] == titulo
         ]
 
     paginator = Paginator(pedidos_cliente, 20)
