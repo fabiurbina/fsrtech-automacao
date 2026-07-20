@@ -13,6 +13,8 @@ def home(request):
     
     numero_pedido = request.GET.get("pedido")
     
+    descricao = request.GET.get("descricao", "").strip()
+    
     email = request.user.email.lower()
     
     print("CPF logado:", cpf_cnpj)
@@ -50,6 +52,13 @@ def home(request):
             for pedido in pedidos_cliente
             if str(pedido["numero_pedido"]) == numero_pedido
     ]
+        
+    if descricao:
+        pedidos_cliente = [
+            pedido
+            for pedido in pedidos_cliente
+            if descricao.lower() in pedido["descricao"].lower()
+        ]
         
     paginator = Paginator(pedidos_cliente, 20)
 

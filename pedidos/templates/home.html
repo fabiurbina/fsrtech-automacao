@@ -102,30 +102,40 @@ Portal do Cliente
 
 <div class="card-body">
 
-<h5 class="mb-4 text-center">
-Meus Pedidos
-</h5>
+    <h5 class="mb-4 text-center">
+        Meus Pedidos
+    </h5>
+
     <form method="GET" class="row mb-3">
 
-        <div class="col-md-4">
-
+        <div class="col-md-3">
             <input
                 type="text"
                 class="form-control"
                 name="pedido"
                 placeholder="Número do Pedido"
                 value="{{ request.GET.pedido }}">
+        </div>
 
+        <div class="col-md-5">
+            <input
+                type="text"
+                class="form-control"
+                name="descricao"
+                placeholder="Descrição do produto"
+                value="{{ request.GET.descricao }}">
         </div>
 
         <div class="col-md-2">
-
-            <button class="btn btn-primary">
-
+            <button class="btn btn-primary w-100">
                 Pesquisar
-
             </button>
+        </div>
 
+        <div class="col-md-2">
+            <a href="{% url 'home' %}" class="btn btn-secondary w-100">
+                Limpar
+            </a>
         </div>
 
     </form>
