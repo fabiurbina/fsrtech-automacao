@@ -10,23 +10,19 @@ from .status_service import interpretar_status
 def home(request):
 
     cpf_cnpj = request.user.username
-    
+
     numero_pedido = request.GET.get("pedido")
-    
     descricao = request.GET.get("descricao", "").strip()
-    
+
     email = request.user.email.lower()
-    
+
     print("CPF logado:", cpf_cnpj)
 
     if "@viesano" in email:
-
         pedidos = consultar_todos_pedidos()
-
     else:
-
         pedidos = consultar_pedidos_cliente(cpf_cnpj)
-    
+
     pedidos_cliente = []
 
     for pedido in pedidos:
@@ -34,32 +30,35 @@ def home(request):
         status = interpretar_status(
             pedido["descricao_etapa"],
             pedido["status_producao"],
-            
-            
         )
 
         pedido["titulo"] = status["titulo"]
         pedido["descricao"] = status["descricao"]
         pedido["cor"] = status["cor"]
-        
-        pedidos_cliente.append(pedido)
-        
-    # FILTRO
-    if numero_pedido:
 
+        pedidos_cliente.append(pedido)
+
+    # Lista de status disponíveis para o filtro
+    status_disponiveis = sorted(
+        {pedido["descricao"] for pedido in pedidos_cliente}
+    )
+
+    # FILTRO POR NÚMERO DO PEDIDO
+    if numero_pedido:
         pedidos_cliente = [
             pedido
             for pedido in pedidos_cliente
             if str(pedido["numero_pedido"]) == numero_pedido
-    ]
-        
+        ]
+
+    # FILTRO POR STATUS
     if descricao:
         pedidos_cliente = [
             pedido
             for pedido in pedidos_cliente
-            if descricao.lower() in pedido["descricao"].lower()
+            if pedido["descricao"] == descricao
         ]
-        
+
     paginator = Paginator(pedidos_cliente, 20)
 
     page = request.GET.get("page")
@@ -67,17 +66,12 @@ def home(request):
     pedidos_cliente = paginator.get_page(page)
 
     return render(
-
         request,
-
         "home.html",
-
         {
-
-            "pedidos": pedidos_cliente
-
-        }
-
+            "pedidos": pedidos_cliente,
+            "status_disponiveis": status_disponiveis,
+        },
     )
 
 from django.contrib import messages

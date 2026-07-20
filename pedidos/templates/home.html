@@ -94,51 +94,55 @@
 
 <div class="card-header bg-white border-bottom text-center">
 
-<h4 class="mb-0">   
-Portal do Cliente
-</h4>
+    <h4 class="mb-0">   
+    Portal do Cliente
+    </h4>
 
-</div>
+    </div>
 
-<div class="card-body">
+    <div class="card-body">
 
-    <h5 class="mb-4 text-center">
-        Meus Pedidos
-    </h5>
+        <h5 class="mb-4 text-center">
+            Meus Pedidos
+        </h5>
 
-    <form method="GET" class="row mb-3">
+        <form method="GET" class="row mb-3">
 
-        <div class="col-md-3">
-            <input
-                type="text"
-                class="form-control"
-                name="pedido"
-                placeholder="Número do Pedido"
-                value="{{ request.GET.pedido }}">
-        </div>
+            <div class="col-md-3">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="pedido"
+                    placeholder="Número do Pedido"
+                    value="{{ request.GET.pedido }}">
+            </div>
 
-        <div class="col-md-5">
-            <input
-                type="text"
-                class="form-control"
-                name="descricao"
-                placeholder="Descrição do produto"
-                value="{{ request.GET.descricao }}">
-        </div>
+            <div class="col-md-4">
+                <select class="form-select" name="descricao">
+                    <option value="">Todos os Status</option>
 
-        <div class="col-md-2">
-            <button class="btn btn-primary w-100">
-                Pesquisar
-            </button>
-        </div>
+                    {% for status in status_disponiveis %}
+                        <option value="{{ status }}"
+                            {% if request.GET.descricao == status %}selected{% endif %}>
+                            {{ status }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <div class="col-md-2">
-            <a href="{% url 'home' %}" class="btn btn-secondary w-100">
-                Limpar
-            </a>
-        </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100">
+                    Pesquisar
+                </button>
+            </div>
 
-    </form>
+            <div class="col-md-2">
+                <a href="{% url 'home' %}" class="btn btn-secondary w-100">
+                    Limpar
+                </a>
+            </div>
+
+        </form>
 
         <div class="table-responsive">
 
