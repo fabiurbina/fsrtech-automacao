@@ -59,13 +59,13 @@ def interpretar_status(etapa_venda, status_producao):
 ):
 
         return {
-            "titulo": "Produção em andamento",
+            "titulo": "Produção concluída",
             "descricao": (
                 "Uma das etapas de produção do seu pedido foi concluída com sucesso. "
                 "Ainda existem outras ordens de produção em andamento e, assim que todas "
                 "forem finalizadas, seu pedido seguirá para faturamento."
             ),
-            "cor": "warning"
+            "cor": "primary"
         }
         
         
