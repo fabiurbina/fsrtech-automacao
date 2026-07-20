@@ -59,7 +59,14 @@
 
                 {{ form.as_p }}
 
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+
                 <div class="d-grid gap-2 mt-4">
+
                     <button type="submit" class="btn btn-success">
                         Salvar nova senha
                     </button>
@@ -67,6 +74,7 @@
                     <a href="{% url 'home' %}" class="btn btn-outline-secondary">
                         Voltar ao Portal
                     </a>
+
                 </div>
 
             </form>
