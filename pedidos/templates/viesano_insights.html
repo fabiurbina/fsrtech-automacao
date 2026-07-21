@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>🧠 Viesano Insights</h2>
+
+    <hr>
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <strong>Resumo da Produção</strong>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Pedido</th>
+                    <td>{{ indicadores.numero_pedido }}</td>
+                </tr>
+
+                <tr>
+                    <th>OP</th>
+                    <td>{{ indicadores.codigo_op }}</td>
+                </tr>
+
+                <tr>
+                    <th>Tempo Total</th>
+                    <td>{{ indicadores.tempo_total_min }} minutos</td>
+                </tr>
+
+                <tr>
+                    <th>Etapas</th>
+                    <td>{{ indicadores.total_etapas }}</td>
+                </tr>
+
+                <tr>
+                    <th>Peso Processado</th>
+                    <td>{{ indicadores.peso_processado_kg }} KG</td>
+                </tr>
+
+                <tr>
+                    <th>Quantidade Prevista</th>
+                    <td>{{ indicadores.quantidade_prevista_un }}</td>
+                </tr>
+
+                <tr>
+                    <th>Perdas</th>
+                    <td>{{ indicadores.perdas_kg }} KG</td>
+                </tr>
+
+                <tr>
+                    <th>Responsável</th>
+                    <td>{{ indicadores.responsavel }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="card border-primary">
+
+        <div class="card-header bg-primary text-white">
+            🧠 Resumo Inteligente
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                Os indicadores acima representam o resumo consolidado da produção
+                desta ordem. Esta área será utilizada pelo <strong>Viesano Insights</strong>
+                para gerar automaticamente análises da produção utilizando Inteligência
+                Artificial, apresentando interpretações dos indicadores, desempenho do
+                processo e observações relevantes para acompanhamento da fabricação.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

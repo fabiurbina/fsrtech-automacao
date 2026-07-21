@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, login_view, logout_view    
+from .views import home, login_view, logout_view, viesano_insights    
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -21,5 +21,12 @@ urlpatterns = [
         ),
         name="password_change_done",
     ),
+    
+    path(
+    "insights/<int:numero_pedido>/",
+    viesano_insights,
+    name="viesano_insights",
+),
+
     
 ]

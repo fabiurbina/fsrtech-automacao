@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator 
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
-from .mysql_service import consultar_pedidos_cliente, consultar_todos_pedidos
+from .mysql_service import consultar_pedidos_cliente, consultar_todos_pedidos,consultar_indicadores_producao
 from .status_service import interpretar_status
+
 
 
 @login_required
@@ -105,3 +106,17 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/login/')
+
+
+@login_required
+def viesano_insights(request, numero_pedido):
+
+    indicadores = consultar_indicadores_producao(numero_pedido)
+
+    return render(
+        request,
+        "viesano_insights.html",
+        {
+            "indicadores": indicadores,
+        },
+    )

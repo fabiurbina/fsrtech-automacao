@@ -119,3 +119,30 @@ def consultar_todos_pedidos():
     cursor.close()
     conn.close()
     return resultado
+
+
+def consultar_indicadores_producao(codigo_op):
+    conn = pymysql.connect(
+        host=os.getenv("HOST"),
+        user=os.getenv("USER"),
+        password=os.getenv("PASSWORD"),
+        database=os.getenv("DATABASE"),
+        charset="utf8mb4"
+    )
+
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    sql = """
+    
+    SELECT * FROM ViesanoDW.vw_resumo_producao
+    WHERE codigo_op = %s;
+    
+    """
+    
+    cursor.execute(sql, (codigo_op,))
+
+    resultado = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+    return resultado
