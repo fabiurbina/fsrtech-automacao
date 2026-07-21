@@ -113,6 +113,17 @@ def logout_view(request):
 def viesano_insights(request, numero_codop):
 
     indicadores = consultar_indicadores_producao(numero_codop)
+
+    if not indicadores:
+        return render(
+            request,
+            "viesano_insights.html",
+            {
+                "indicadores": None,
+                "resumo": None,
+            },
+        )
+
     resumo = gerar_resumo(indicadores)
 
     return render(
@@ -121,5 +132,5 @@ def viesano_insights(request, numero_codop):
         {
             "indicadores": indicadores,
             "resumo": resumo,
-        }
+        },
     )
