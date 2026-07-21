@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from .mysql_service import consultar_pedidos_cliente, consultar_todos_pedidos,consultar_indicadores_producao
 from .status_service import interpretar_status
+from .ia_service import gerar_resumo
 
 
 
@@ -112,11 +113,13 @@ def logout_view(request):
 def viesano_insights(request, numero_codop):
 
     indicadores = consultar_indicadores_producao(numero_codop)
+    resumo = gerar_resumo(indicadores)
 
     return render(
         request,
         "viesano_insights.html",
         {
-            "indicadores": indicadores
+            "indicadores": indicadores,
+            "resumo": resumo,
         }
     )

@@ -217,36 +217,17 @@
 
                 <p>
 
-                    A Ordem de Produção
-                    <strong>{{ indicadores.codigo_op }}</strong>,
-                    vinculada ao
-                    <strong>Pedido {{ indicadores.numero_pedido }}</strong>,
-                    resultou na fabricação de
-                    <strong>{{ indicadores.peso_processado_kg }} kg</strong>,
-                    correspondentes a
-                    <strong>{{ indicadores.quantidade_prevista_un }} unidades</strong>.
-
-                </p>
-
-                <p>
-
                     O processo produtivo foi concluído em aproximadamente
                     <strong>{{ indicadores.tempo_total_min }} minutos</strong>,
                     demonstrando o desempenho registrado durante a fabricação.
 
                 </p>
 
-                <p>
+                <div class="texto-ia">
 
-                    Nas próximas versões do
-                    <strong>Viesano Insights</strong>,
-                    esta análise será produzida automaticamente por Inteligência Artificial,
-                    capaz de interpretar os indicadores de produção,
-                    identificar possíveis gargalos,
-                    comparar o desempenho com o histórico
-                    e gerar recomendações para melhoria contínua do processo.
+                    {{ resumo|linebreaks }}
 
-                </p>
+                </div>
 
             </div>
 
