@@ -93,6 +93,7 @@ def consultar_todos_pedidos():
             op.numero_CodProduto,	
             op.quantidade,
 			op.etapaid,
+            op.numero_CodOP,
 			case when eop.descricao_etapa is null and rc.dtSugestao is not null then 
 			'Requisição de compra' else eop.descricao_etapa end as 'status_producao'
 			
