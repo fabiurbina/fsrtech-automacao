@@ -18,11 +18,11 @@
 
 
         .table{
-            font-size: 14px;
+    font-size:14px;
         }
 
         .table th{
-            font-size: 14px;
+            font-size:14px;
             font-weight:600;
         }
 
@@ -74,6 +74,27 @@
         .cliente{
             white-space:nowrap;
             font-weight:600;
+        }
+
+        .btn-insights{
+            background:transparent;
+            border:none;
+            font-size:1.5rem;
+            padding:2px 6px;
+            cursor:pointer;
+            transition:transform .2s ease;
+        }
+
+        .btn-insights:hover{
+            transform:scale(1.25);
+            background:transparent;
+        }
+
+        .btn-insights:focus,
+        .btn-insights:active{
+            background:transparent !important;
+            box-shadow:none;
+            outline:none;
         }
 
     </style>
@@ -217,7 +238,7 @@
             </button>
 
            <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
-            class="btn btn-dark btn-sm"
+            class="btn btn-insights"
             title="Viesano Insights">
                 🧠
             </a>
