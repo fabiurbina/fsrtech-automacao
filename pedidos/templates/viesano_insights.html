@@ -43,18 +43,36 @@
 
         .indicador{
             text-align:center;
-            padding:25px;
+            padding:30px 20px;
         }
 
         .indicador h3{
             margin:0;
             font-weight:700;
             color:#0D3B66;
+            font-size:2.2rem;
         }
 
         .indicador small{
             color:#777;
+            font-size:15px;
+        }
+
+        .dados-op h4{
+            color:#0D3B66;
+            font-weight:700;
+            margin-bottom:0;
+        }
+
+        .dados-op small{
+            color:#777;
             font-size:14px;
+        }
+
+        .texto-ia{
+            font-size:16px;
+            line-height:1.9;
+            text-align:justify;
         }
 
     </style>
@@ -71,143 +89,184 @@
 
 <div class="container py-4">
 
-    <div class="card shadow">
+<div class="card shadow">
 
-        <div class="card-header bg-white text-center">
+<div class="card-header bg-white text-center">
 
-            <h3 class="titulo">
+    <h2 class="titulo mb-2">
+        🧠 Viesano Insights
+    </h2>
 
-                🧠 Viesano Insights
+    <p class="mb-0">
+        Resumo Inteligente da Produção
+    </p>
 
-            </h3>
+</div>
 
-            <p class="mb-0">
+<div class="card-body">
 
-                Resumo Inteligente da Produção
+    <div class="d-flex justify-content-center align-items-center gap-5 mb-5 dados-op">
 
-            </p>
+        <div class="text-center">
+
+            <small>Pedido</small>
+
+            <h4>
+
+                {{ indicadores.numero_pedido }}
+
+            </h4>
 
         </div>
 
-        <div class="card-body">
+        <div class="text-center">
 
-            <div class="row mb-4">
+            <small>Ordem de Produção</small>
 
-                <div class="col-md-6">
+            <h4>
 
-                    <strong>Pedido:</strong>
+                {{ indicadores.codigo_op }}
 
-                    {{ indicadores.numero_pedido }}
+            </h4>
 
-                </div>
+        </div>
 
-                <div class="col-md-6 text-end">
+    </div>
 
-                    <strong>OP:</strong>
+    <div class="row justify-content-center g-4">
 
-                    {{ indicadores.codigo_op }}
+        <div class="col-12 col-md-4 col-lg-3">
 
-                </div>
+            <div class="card shadow-sm">
 
-            </div>
+                <div class="indicador">
 
-            <div class="row g-3">
+                    <small>⏱ Tempo Total</small>
 
-                <div class="col-md-3">
+                    <h3>
 
-                    <div class="card shadow-sm">
+                        {{ indicadores.tempo_total_min }}
 
-                        <div class="indicador">
+                    </h3>
 
-                            <small>⏱ Tempo Total</small>
-
-                            <h3>{{ indicadores.tempo_total_min }}</h3>
-
-                            <small>minutos</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="card shadow-sm">
-
-                        <div class="indicador">
-
-                            <small>⚖️ Peso</small>
-
-                            <h3>{{ indicadores.peso_processado_kg }}</h3>
-
-                            <small>KG</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="card shadow-sm">
-
-                        <div class="indicador">
-
-                            <small>📉 Quantidade Produzida</small>
-
-                            <h3>{{ indicadores.quantidade_prevista_un }}</h3>
-
-                            <small>UN</small>
-
-                        </div>
-
-                    </div>
+                    <small>minutos</small>
 
                 </div>
 
             </div>
 
-            <div class="card shadow-sm mt-4">
+        </div>
 
-                <div class="card-header">
+        <div class="col-12 col-md-4 col-lg-3">
 
-                    <strong>📄 Resumo da Produção</strong>
+            <div class="card shadow-sm">
 
-                </div>
+                <div class="indicador">
 
-                <div class="card-body">
+                    <small>⚖️ Peso Produzido</small>
 
-                    <p>
+                    <h3>
 
-                        Esta é a primeira versão do <strong>Viesano Insights</strong>.
+                        {{ indicadores.peso_processado_kg }}
 
-                    </p>
+                    </h3>
 
-                    <p>
-
-                        Em breve esta área utilizará Inteligência Artificial para interpretar automaticamente os indicadores da produção, gerando comentários sobre desempenho, produtividade e possíveis oportunidades de melhoria.
-
-                    </p>
+                    <small>KG</small>
 
                 </div>
 
             </div>
 
-            <div class="text-center mt-4">
+        </div>
 
-                <a href="{% url 'home' %}" class="btn btn-secondary">
+        <div class="col-12 col-md-4 col-lg-3">
 
-                    ← Voltar ao Portal
+            <div class="card shadow-sm">
 
-                </a>
+                <div class="indicador">
+
+                    <small>📦 Quantidade Produzida</small>
+
+                    <h3>
+
+                        {{ indicadores.quantidade_prevista_un }}
+
+                    </h3>
+
+                    <small>UN</small>
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
+
+    <div class="card shadow-sm mt-5">
+
+        <div class="card-header">
+
+            <strong>🧠 Análise Inteligente</strong>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="texto-ia">
+
+                <p>
+
+                    A Ordem de Produção
+                    <strong>{{ indicadores.codigo_op }}</strong>,
+                    vinculada ao
+                    <strong>Pedido {{ indicadores.numero_pedido }}</strong>,
+                    resultou na fabricação de
+                    <strong>{{ indicadores.peso_processado_kg }} kg</strong>,
+                    correspondentes a
+                    <strong>{{ indicadores.quantidade_prevista_un }} unidades</strong>.
+
+                </p>
+
+                <p>
+
+                    O processo produtivo foi concluído em aproximadamente
+                    <strong>{{ indicadores.tempo_total_min }} minutos</strong>,
+                    demonstrando o desempenho registrado durante a fabricação.
+
+                </p>
+
+                <p>
+
+                    Nas próximas versões do
+                    <strong>Viesano Insights</strong>,
+                    esta análise será produzida automaticamente por Inteligência Artificial,
+                    capaz de interpretar os indicadores de produção,
+                    identificar possíveis gargalos,
+                    comparar o desempenho com o histórico
+                    e gerar recomendações para melhoria contínua do processo.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+
+        <a href="{% url 'home' %}" class="btn btn-secondary px-4">
+
+            ← Voltar ao Portal
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
 
 </div>
 
