@@ -121,7 +121,8 @@ def consultar_todos_pedidos():
     return resultado
 
 
-def consultar_indicadores_producao(codigo_op):
+def consultar_indicadores_producao(numero_codop):
+
     conn = pymysql.connect(
         host=os.getenv("HOST"),
         user=os.getenv("USER"),
@@ -133,16 +134,16 @@ def consultar_indicadores_producao(codigo_op):
     cursor = conn.cursor(pymysql.cursors.DictCursor)
 
     sql = """
-    
-    SELECT * FROM ViesanoDW.vw_resumo_producao
-    WHERE codigo_op = %s;
-    
+        SELECT *
+        FROM vw_resumo_producao
+        WHERE numero_CodOP = %s
     """
-    
-    cursor.execute(sql, (codigo_op,))
+
+    cursor.execute(sql, (numero_codop,))
 
     resultado = cursor.fetchone()
 
     cursor.close()
     conn.close()
+
     return resultado

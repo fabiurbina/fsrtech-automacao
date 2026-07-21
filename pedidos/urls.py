@@ -23,7 +23,7 @@ urlpatterns = [
     ),
     
     path(
-    "insights/<int:numero_pedido>/",
+    "insights/<int:numero_codop>/",
     viesano_insights,
     name="viesano_insights",
 ),

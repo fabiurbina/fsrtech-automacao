@@ -109,14 +109,14 @@ def logout_view(request):
 
 
 @login_required
-def viesano_insights(request, numero_pedido):
+def viesano_insights(request, numero_codop):
 
-    indicadores = consultar_indicadores_producao(numero_pedido)
+    indicadores = consultar_indicadores_producao(numero_codop)
 
     return render(
         request,
         "viesano_insights.html",
         {
-            "indicadores": indicadores,
-        },
+            "indicadores": indicadores
+        }
     )
