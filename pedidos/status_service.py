@@ -1,12 +1,13 @@
-def interpretar_status(etapa_venda, status_producao):
+def interpretar_status(etapa_venda, status_producao, cenario_fiscal):
 
     print(
-    f"Venda='{etapa_venda}' | Produção='{status_producao}'"
+    f"Venda='{etapa_venda}' | Produção='{status_producao}' |  Cenario = '{cenario_fiscal}'"
 )
     # Evita erro caso venha None
     etapa_venda = (etapa_venda or "").strip().lower()
     status_producao = (status_producao or "").strip().lower()
-
+    cenario_fiscal = (cenario_fiscal or "").strip().lower()
+    
     if (
         etapa_venda == "separar estoque"
         and status_producao == "programado"
@@ -36,6 +37,24 @@ def interpretar_status(etapa_venda, status_producao):
             ),
             "cor": "primary"
 }
+
+    if (
+            etapa_venda == "separar estoque"
+            and status_producao == "requisição de compra"
+            and cenario_fiscal == "Industrialização para Terceiros"
+        ):
+    
+            return {
+                "titulo": "Aguardando materiais",
+                "descricao": (
+                    "Estamos a chegada dos materiais necessários "
+                    "para iniciar a produção."
+                ),
+                
+                "cor": "danger"
+            }
+
+
 
     if (
         etapa_venda == "separar estoque"

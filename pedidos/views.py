@@ -30,8 +30,9 @@ def home(request):
     for pedido in pedidos:
 
         status = interpretar_status(
-            pedido["descricao_etapa"],
-            pedido["status_producao"],
+            pedido.get("descricao_etapa"),
+            pedido.get("status_producao"),
+            pedido.get("cNome")
         )
 
         pedido["titulo"] = status["titulo"]
