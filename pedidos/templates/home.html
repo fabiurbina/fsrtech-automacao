@@ -237,11 +237,13 @@
 
             </button>
 
-           <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
-            class="btn btn-insights"
-            title="Viesano Insights">
-                🧠
-            </a>
+           {% if pedido.numero_CodOP %}
+                <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
+                class="btn btn-insights"
+                title="Viesano Insights">
+                    🧠
+                </a>
+            {% endif %}
 
             </td>
 
