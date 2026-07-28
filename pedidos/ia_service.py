@@ -13,10 +13,10 @@ def gerar_resumo(indicadores):
     etapas = indicadores["total_etapas"]
     tempo_medio = indicadores["tempo_medio_etapa_min"]
 
-    peso = indicadores["peso_processado_kg"]
-    quantidade = indicadores["quantidade_prevista_un"]
+    peso = indicadores["peso_real_fracionamento_kg"]
+    quantidade = indicadores["quantidade_prevista_envase_un"]
 
-    perdas = indicadores["perdas_kg"]
+    perdas = indicadores["perda_envase_un"]
 
     texto = f"""
 A Ordem de Produção {op}, vinculada ao Pedido {pedido},
