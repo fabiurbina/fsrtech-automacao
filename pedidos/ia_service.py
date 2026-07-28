@@ -16,7 +16,7 @@ def gerar_resumo(indicadores):
     peso = indicadores["peso_real_fracionamento_kg"]
     quantidade = indicadores["quantidade_prevista_envase_un"]
 
-    perdas = indicadores["perda_envase_un"]
+    perdas = indicadores["perda_fracionamento_kg"]
 
     texto = f"""
 A Ordem de Produção {op}, vinculada ao Pedido {pedido},
