@@ -102,7 +102,8 @@ def consultar_todos_pedidos():
             end as quantidade,
             op.etapaid,
             case when eop.descricao_etapa is null and rc.dtSugestao is not null then 
-            'Requisição de compra' else eop.descricao_etapa end as 'status_producao'
+            'Requisição de compra' else eop.descricao_etapa end as 'status_producao',
+            it.codigo_produto
 			
 		FROM pedidos p
 		LEFT JOIN (SELECT * FROM etapas WHERE descricao_operacao = 'Venda de Produto') e ON e.codigo_etapa = p.etapa
@@ -118,6 +119,7 @@ def consultar_todos_pedidos():
             eop.descricao_etapa IS NOT NULL
             OR rc.dtSugestao IS NOT NULL
         )
+        group by p.numero_pedido,  it.codigo_produto
         ORDER BY p.data_previsao DESC;
     """
 
