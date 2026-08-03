@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, login_view, logout_view, viesano_insights    
+from .views import home, login_view, logout_view, viesano_insights, detalhes_mrp
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -26,6 +26,12 @@ urlpatterns = [
     "insights/<int:numero_codop>/",
     viesano_insights,
     name="viesano_insights",
+),
+    
+    path(
+    "mrp/<int:numero_pedido>/<int:codigo_produto>/",
+    detalhes_mrp,
+    name="detalhes_mrp"
 ),
 
     

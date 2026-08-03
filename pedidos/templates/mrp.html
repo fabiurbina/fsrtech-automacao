@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h3 class="mb-4">
+        📦 Disponibilidade de Materiais
+    </h3>
+
+    <h5 class="mb-3">
+        Pedido {{ numero_pedido }}
+    </h5>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>Material</th>
+                        <th class="text-end">Necessário</th>
+                        <th class="text-end">Estoque</th>
+                        <th class="text-end">Saldo</th>
+                        <th class="text-center">Situação</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for item in materiais %}
+
+                    <tr>
+
+                        <td>{{ item.descricao_produto_malha }}</td>
+
+                        <td class="text-end">
+                            {{ item.necessidade_componente }}
+                        </td>
+
+                        <td class="text-end">
+                            {{ item.estoque_atual }}
+                        </td>
+
+                        <td class="text-end">
+                            {{ item.saldo_provisionado }}
+                        </td>
+
+                        <td class="text-center">
+
+                            {% if item.saldo_provisionado >= 0 %}
+
+                                <span class="badge bg-success">
+                                    Disponível
+                                </span>
+
+                            {% else %}
+
+                                <span class="badge bg-warning text-dark">
+                                    Aguardando
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+
+                        <td colspan="5" class="text-center">
+
+                            Nenhum material encontrado.
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <a href="javascript:history.back()" class="btn btn-secondary">
+
+            ← Voltar
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

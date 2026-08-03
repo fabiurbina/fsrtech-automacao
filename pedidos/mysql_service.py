@@ -88,3 +88,35 @@ def consultar_indicadores_producao(numero_codop):
     conn.close()
 
     return resultado
+
+
+
+
+def mrp (numero_pedido, codigo_produto):
+    
+    
+    conn = pymysql.connect(
+        host=os.getenv("HOST"),
+        user=os.getenv("USER"),
+        password=os.getenv("PASSWORD"),
+        database=os.getenv("DATABASE"),
+        charset="utf8mb4"
+    )
+
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+
+    sql = """
+        SELECT *
+        FROM ViesanoDW.MRP
+        WHERE numero_pedido = %s AND codigo_produto = %s
+    """
+
+    cursor.execute(sql, (numero_pedido, codigo_produto))
+
+    resultado = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return resultado
+

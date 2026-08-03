@@ -224,7 +224,7 @@
 
             <td class="text-center">
 
-                <button
+            <button
                 type="button"
                 class="btn btn-sm btn-outline-info"
                 data-bs-toggle="popover"
@@ -234,17 +234,24 @@
                 data-bs-content="{{ pedido.descricao }}">
 
                 ℹ️
-
             </button>
 
-           {% if pedido.numero_CodOP %}
-                <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
-                class="btn btn-insights"
-                title="Viesano Insights">
-                    🧠
-                </a>
-            {% endif %}
+            <a href="{% url 'detalhes_mrp' pedido.numero_pedido pedido.codigo_produto %}"
+            class="btn btn-sm btn-outline-primary"
+            title="Disponibilidade de Materiais">
 
+                📦
+            </a>
+
+            {% if pedido.numero_CodOP %}
+            <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
+            class="btn btn-insights"
+            title="Viesano Insights">
+
+                🧠
+
+            </a>
+            {% endif %}
             </td>
 
             </tr>

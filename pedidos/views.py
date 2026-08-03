@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator 
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
-from .mysql_service import consultar_pedidos_cliente, consultar_todos_pedidos,consultar_indicadores_producao
+from .mysql_service import (consultar_pedidos_cliente, 
+                            consultar_todos_pedidos,
+                            consultar_indicadores_producao, 
+                            mrp)
 from .status_service import interpretar_status
 from .ia_service import gerar_resumo
 
@@ -134,4 +137,18 @@ def viesano_insights(request, numero_codop):
             "indicadores": indicadores,
             "resumo": resumo,
         },
+    )
+    
+    
+def detalhes_mrp(request, numero_pedido, codigo_produto):
+
+    materiais = mrp(numero_pedido, codigo_produto)
+
+    return render(
+        request,
+        "mrp.html",
+        {
+            "materiais": materiais,
+            "numero_pedido": numero_pedido
+        }
     )
