@@ -224,34 +224,43 @@
 
             <td class="text-center">
 
-            <button
-                type="button"
-                class="btn btn-sm btn-outline-info"
-                data-bs-toggle="popover"
-                data-bs-trigger="hover"
-                data-bs-placement="left"
-                data-bs-title="Orientação Viesano"
-                data-bs-content="{{ pedido.descricao }}">
+                <div class="d-flex justify-content-center align-items-center gap-1">
 
-                ℹ️
-            </button>
+                    <button
+                        type="button"
+                        class="btn btn-sm btn-outline-info"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="hover"
+                        data-bs-placement="left"
+                        data-bs-title="Orientação Viesano"
+                        data-bs-content="{{ pedido.descricao }}">
 
-            <a href="{% url 'detalhes_mrp' pedido.numero_pedido pedido.codigo_produto %}"
-            class="btn btn-sm btn-outline-primary"
-            title="Disponibilidade de Materiais">
+                        ℹ️
 
-                📦
-            </a>
+                    </button>
 
-            {% if pedido.numero_CodOP %}
-            <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
-            class="btn btn-insights"
-            title="Viesano Insights">
+                    <a href="{% url 'detalhes_mrp' pedido.numero_pedido pedido.codigo_produto %}"
+                    class="btn btn-sm btn-outline-primary"
+                    title="Disponibilidade de Materiais">
 
-                🧠
+                        📦
 
-            </a>
-            {% endif %}
+                    </a>
+
+                    {% if pedido.numero_CodOP %}
+
+                    <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
+                    class="btn btn-sm btn-outline-success"
+                    title="Viesano Insights">
+
+                        🧠
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
             </td>
 
             </tr>
