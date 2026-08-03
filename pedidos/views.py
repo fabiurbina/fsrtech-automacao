@@ -143,6 +143,13 @@ def viesano_insights(request, numero_codop):
 def detalhes_mrp(request, numero_pedido, codigo_produto):
 
     materiais = mrp(numero_pedido, codigo_produto)
+    
+    for item in materiais:
+
+        if item["estoque_atual"] < 0:
+            item["estoque_cliente"] = 0
+        else:
+            item["estoque_cliente"] = item["estoque_atual"]
 
     return render(
         request,
