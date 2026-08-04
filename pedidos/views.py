@@ -35,7 +35,7 @@ def home(request):
         status = interpretar_status(
             pedido.get("descricao_etapa"),
             pedido.get("status_producao"),
-            pedido.get("cNome")
+            pedido.get("cenario_fiscal")
         )
 
         pedido["titulo"] = status["titulo"]

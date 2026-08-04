@@ -41,13 +41,13 @@ def interpretar_status(etapa_venda, status_producao, cenario_fiscal):
     if (
             etapa_venda == "separar estoque"
             and status_producao == "requisição de compra"
-            and cenario_fiscal == "Industrialização para Terceiros"
+            and cenario_fiscal == "industrialização para terceiros"
         ):
     
             return {
                 "titulo": "Aguardando materiais",
                 "descricao": (
-                    "Estamos a chegada dos materiais necessários "
+                    "Estamos aguardando a chegada dos materiais necessários "
                     "para iniciar a produção."
                 ),
                 
