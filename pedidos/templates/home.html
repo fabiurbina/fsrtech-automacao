@@ -1,364 +1,1084 @@
+
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portal do Cliente</title>
+    <title>Fábio Soares | Automação, Integração e Dados</title>
+
+    <meta name="description"
+          content="Soluções em RPA, automação de processos, integração entre sistemas, APIs, Webhooks, Power BI e desenvolvimento de sistemas.">
 
     <link rel="icon"
           type="image/png"
-          href="{% static 'img/logo_viesano.png' %}">
+          href="{% static 'img/logo.png' %}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <style>
 
-
-
-        .table{
-    font-size:14px;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0f172a;
+            --dark-2: #111827;
+            --text: #334155;
+            --muted: #64748b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
         }
 
-        .table th{
-            font-size:14px;
-            font-weight:600;
+        * {
+            box-sizing: border-box;
         }
 
-        .table td{
-            font-size:14px;
-            line-height:1.5;
+        html {
+            scroll-behavior: smooth;
         }
 
-        body{
-            font-family:'Inter',sans-serif;
-            background:#f5f7fb;
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
         }
 
-        .topo{
-            background:linear-gradient(90deg,#0D3B66,#2EC4B6);
-            padding:12px;
-            text-align:center;
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .topo img{
-            max-width:220px;
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
-        .card{
-            border:none;
-            border-radius:18px;
+        .brand span {
+            color: var(--primary);
         }
 
-        th{
-            font-weight:600;
-            white-space:nowrap;
+        .nav-link-custom {
+            color: #475569;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 28px;
+            transition: 0.2s;
         }
 
-        td{
-            vertical-align:middle;
+        .nav-link-custom:hover {
+            color: var(--primary);
         }
 
-        .status{
-            display:inline-block;
-            min-width:120px;
-            max-width:140px;
-            padding:6px 10px;
-            text-align:center;
-            border-radius:8px;
-            font-weight:600;
-            font-size:13px;
+        .btn-whatsapp {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
         }
 
-        .cliente{
-            white-space:nowrap;
-            font-weight:600;
+        .btn-whatsapp:hover {
+            background: #15803d;
+            color: white;
+            transform: translateY(-1px);
         }
 
-        .btn-insights{
-            background:transparent;
-            border:none;
-            font-size:1.5rem;
-            padding:2px 6px;
-            cursor:pointer;
-            transition:transform .2s ease;
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.20), transparent 35%),
+                linear-gradient(135deg, #0f172a 0%, #172554 100%);
+            color: white;
+            padding: 110px 0 120px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-insights:hover{
-            transform:scale(1.25);
-            background:transparent;
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        .btn-insights:focus,
-        .btn-insights:active{
-            background:transparent !important;
-            box-shadow:none;
-            outline:none;
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -2px;
+            max-width: 850px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-custom {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255,255,255,0.08);
+            color: white;
+        }
+
+        .hero-technologies {
+            margin-top: 65px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .hero-technologies span {
+            color: #e2e8f0;
+            font-weight: 600;
+            margin-right: 20px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-light {
+            background: var(--light);
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .service-card {
+            height: 100%;
+            padding: 30px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #bfdbfe;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff6ff;
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+
+        /* =========================
+           PROBLEMAS
+        ========================= */
+
+        .problem-section {
+            background: #0f172a;
+            color: white;
+        }
+
+        .problem-section .section-title {
+            color: white;
+        }
+
+        .problem-section .section-subtitle {
+            color: #94a3b8;
+        }
+
+        .problem-item {
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.05rem;
+            color: #e2e8f0;
+        }
+
+        .problem-item span {
+            color: #60a5fa;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .problem-highlight {
+            margin-top: 40px;
+            padding: 25px;
+            border-left: 4px solid #3b82f6;
+            background: rgba(255,255,255,0.04);
+            color: #e2e8f0;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CASE
+        ========================= */
+
+        .case-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .case-header {
+            background: linear-gradient(135deg, #172554, #1e3a8a);
+            color: white;
+            padding: 35px;
+        }
+
+        .case-header small {
+            color: #93c5fd;
+            font-weight: 600;
+        }
+
+        .case-header h3 {
+            margin-top: 10px;
+            font-weight: 800;
+        }
+
+        .case-body {
+            padding: 35px;
+        }
+
+        .case-body p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            padding: 7px 12px;
+            margin: 5px 5px 0 0;
+            background: #f1f5f9;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-box {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 45px;
+        }
+
+        .about-box h2 {
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .about-box p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #dbeafe;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .btn-cta {
+            background: white;
+            color: #1d4ed8;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            color: #1d4ed8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 35px 0;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar-custom {
+                padding: 14px 0;
+            }
+
+            .nav-link-custom {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 1.9rem;
+            }
+
+            .about-box {
+                padding: 30px;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
 
-<div class="topo">
 
-    <img src="{% static 'img/logo.png' %}" alt="Viesano">
+<!-- =========================
+     NAVBAR
+========================= -->
 
-</div>
+<nav class="navbar-custom">
 
-<div class="container py-4">
+    <div class="container d-flex justify-content-between align-items-center">
 
-<div class="card shadow">
+        <a href="#" class="brand">
+            Fábio<span>Soares</span>
+        </a>
 
-<div class="card-header bg-white border-bottom text-center">
+        <div class="d-flex align-items-center">
 
-    <h4 class="mb-0">   
-    Portal do Cliente
-    </h4>
-
-    </div>
-
-    <div class="card-body">
-
-        <h5 class="mb-4 text-center">
-            Meus Pedidos
-        </h5>
-
-        <form method="GET" class="row mb-3">
-
-            <div class="col-md-3">
-                <input
-                    type="text"
-                    class="form-control"
-                    name="pedido"
-                    placeholder="Número do Pedido"
-                    value="{{ request.GET.pedido }}">
-            </div>
-
-            <div class="col-md-4">
-                <select class="form-select" name="titulo">
-                <option value="">Todos os Status</option>
-
-                {% for status in status_disponiveis %}
-                    <option value="{{ status }}"
-                        {% if request.GET.titulo == status %}selected{% endif %}>
-                        {{ status }}
-                    </option>
-                {% endfor %}
-            </select>
-            </div>
-
-            <div class="col-md-2">
-                <button class="btn btn-primary w-100">
-                    Pesquisar
-                </button>
-            </div>
-
-            <div class="col-md-2">
-                <a href="{% url 'home' %}" class="btn btn-secondary w-100">
-                    Limpar
-                </a>
-            </div>
-
-        </form>
-
-        <div class="table-responsive">
-
-            <table class="table table-hover align-middle text-center">
-
-            <thead>
-
-                <tr>
-                    <th>Razão Social</th>
-
-                    <th>Pedido</th>
-
-                    <th>Ordem de Produção</th>
-
-                    <th>Quantidade</th>
-
-                    <th>Produto</th>
-
-                    <th>Data da Previsão</th>
-
-                    <th>Descrição</th>
-
-                    <th></th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                {% for pedido in pedidos %}
-
-            <tr>
-
-                <td class="cliente">
-                    {{ pedido.razao_social }}
-                </td>
-
-                <td>{{ pedido.numero_pedido }}</td>
-
-                <td>{{ pedido.numero_op }}</td>
-
-                <td>{{ pedido.quantidade }}</td>
-
-                <td>{{ pedido.descricao_produto }}</td>
-
-                <td>{{ pedido.data_previsao|date:"d/m/Y" }}</td>
-
-                <td class="text-center">
-
-                <div class="alert alert-{{ pedido.cor }} status mb-0">
-
-                    {{ pedido.titulo }}
-
-                </div>
-
-            </td>
-
-            <td class="text-center">
-
-                <div class="d-flex justify-content-center align-items-center gap-1">
-
-                    <button
-                        type="button"
-                        class="btn btn-sm btn-outline-info"
-                        data-bs-toggle="popover"
-                        data-bs-trigger="hover"
-                        data-bs-placement="left"
-                        data-bs-title="Orientação Viesano"
-                        data-bs-content="{{ pedido.descricao }}">
-
-                        ℹ️
-
-                    </button>
-
-                    <a href="{% url 'detalhes_mrp' pedido.numero_pedido pedido.codigo_produto %}"
-                    class="btn btn-sm btn-outline-primary"
-                    title="Disponibilidade de Materiais">
-
-                        📦
-
-                    </a>
-
-                    {% if pedido.numero_CodOP %}
-
-                    <a href="{% url 'viesano_insights' pedido.numero_CodOP %}"
-                    class="btn btn-sm btn-outline-success"
-                    title="Viesano Insights">
-
-                        🧠
-
-                    </a>
-
-                    {% endif %}
-
-                </div>
-
-            </td>
-
-            </tr>
-
-
-            {% empty %}
-
-            <tr>
-                <td colspan="8">
-                    Nenhum pedido encontrado.
-                </td>
-            </tr>
-
-            {% endfor %}
-
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
-
-<div class="text-center mt-4 mb-5">
-
-
-<nav class="mt-4">
-
-    <ul class="pagination justify-content-center">
-
-        {% if pedidos.has_previous %}
-
-        <li class="page-item">
-            <a class="page-link" href="?page={{ pedidos.previous_page_number }}">
-                ← Anterior
+            <a href="#servicos" class="nav-link-custom">
+                Serviços
             </a>
-        </li>
 
-        {% endif %}
+            <a href="#projetos" class="nav-link-custom">
+                Projetos
+            </a>
 
-        <li class="page-item disabled">
+            <a href="#sobre" class="nav-link-custom">
+                Sobre
+            </a>
 
-            <span class="page-link">
+            <a href="https://wa.me/5511970907249"
+               target="_blank"
+               class="btn-whatsapp ms-4">
 
-                Página {{ pedidos.number }} de {{ pedidos.paginator.num_pages }}
-
-            </span>
-
-        </li>
-
-        {% if pedidos.has_next %}
-
-        <li class="page-item">
-
-            <a class="page-link" href="?page={{ pedidos.next_page_number }}">
-
-                Próxima →
+                WhatsApp
 
             </a>
 
-        </li>
+        </div>
 
-        {% endif %}
-
-    </ul>
+    </div>
 
 </nav>
 
-<div class="d-flex justify-content-center align-items-center gap-2 mt-3">
 
-    <a href="{% url 'password_change' %}" class="btn btn-outline-secondary">
-        🔒 Alterar senha
-    </a>
+<!-- =========================
+     HERO
+========================= -->
 
-    <a href="/logout/" class="btn btn-outline-danger px-4">
-        Sair
-    </a>
+<section class="hero">
 
-</div>
+    <div class="container">
 
-</div>
+        <span class="hero-badge">
+            Automação • Integração • Dados
+        </span>
+
+        <h1>
+            Automatize processos.
+            <span>Conecte sistemas.</span>
+            Gere resultados.
+        </h1>
+
+        <p class="hero-description">
+
+            Desenvolvo soluções personalizadas para eliminar tarefas manuais,
+            integrar sistemas e transformar dados em informações úteis para
+            o seu negócio.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="https://wa.me/5511970907249"
+               target="_blank"
+               class="btn-primary-custom">
+
+                Quero automatizar meu processo →
+
+            </a>
+
+            <a href="#servicos"
+               class="btn-outline-custom">
+
+                Conhecer serviços
+
+            </a>
+
+        </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="hero-technologies">
 
-<script>
+            Tecnologias e soluções:
 
-const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+            <span>Python</span>
+            <span>Power BI</span>
+            <span>APIs</span>
+            <span>Webhooks</span>
+            <span>SQL</span>
+            <span>AWS</span>
 
-const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        </div>
 
-</script>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section class="section" id="servicos">
+
+    <div class="container">
+
+        <div class="mb-5">
+
+            <h2 class="section-title">
+                O que eu faço
+            </h2>
+
+            <p class="section-subtitle">
+
+                Soluções desenvolvidas de acordo com a necessidade
+                e os processos de cada empresa.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        RPA & Automação
+                    </h3>
+
+                    <p>
+                        Automatização de tarefas repetitivas,
+                        processos administrativos, operações em sistemas
+                        e rotinas que consomem tempo da sua equipe.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        🔗
+                    </div>
+
+                    <h3>
+                        Integração entre Sistemas
+                    </h3>
+
+                    <p>
+                        Conecto sistemas diferentes através de APIs,
+                        bancos de dados e integrações personalizadas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Power BI & Dados
+                    </h3>
+
+                    <p>
+                        Dashboards, indicadores, modelagem de dados,
+                        SQL, ETL e estruturas para transformar dados
+                        em decisões.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        APIs & Webhooks
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de APIs e webhooks para
+                        permitir comunicação automática entre aplicações
+                        e serviços.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        ⚖️
+                    </div>
+
+                    <h3>
+                        Automação Jurídica
+                    </h3>
+
+                    <p>
+                        Automatização de tarefas operacionais,
+                        consultas, organização de informações e
+                        fluxos utilizados em ambientes jurídicos.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Sistemas Sob Medida
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de portais, aplicações internas
+                        e sistemas personalizados para necessidades
+                        específicas da empresa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROBLEMAS
+========================= -->
+
+<section class="section problem-section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <h2 class="section-title">
+                    Sua empresa ainda faz isso manualmente?
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Muitos processos que consomem horas da equipe podem
+                    ser automatizados.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6 mt-4 mt-lg-0">
+
+
+                <div class="problem-item">
+
+                    <span>01</span>
+
+                    Copiar informações de um sistema para outro
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <span>02</span>
+
+                    Consolidar várias planilhas todos os dias
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <span>03</span>
+
+                    Gerar relatórios manualmente
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <span>04</span>
+
+                    Alimentar sistemas repetidamente
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <span>05</span>
+
+                    Consultar informações em vários sistemas
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <span>06</span>
+
+                    Fazer processos repetitivos que dependem de pessoas
+
+                </div>
+
+
+                <div class="problem-highlight">
+
+                    Se existe um processo repetitivo,
+                    provavelmente existe uma oportunidade de automação.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJETOS
+========================= -->
+
+<section class="section section-light" id="projetos">
+
+    <div class="container">
+
+        <div class="mb-5">
+
+            <h2 class="section-title">
+                Projetos & Experiência
+            </h2>
+
+            <p class="section-subtitle">
+
+                Soluções desenvolvidas para resolver problemas reais
+                de operação, dados e integração.
+
+            </p>
+
+        </div>
+
+
+        <div class="case-card">
+
+            <div class="case-header">
+
+                <small>
+                    CASE DE DESENVOLVIMENTO
+                </small>
+
+                <h3>
+                    Portal do Cliente
+                </h3>
+
+                <p class="mb-0 mt-2 text-white-50">
+
+                    Portal web integrado aos processos internos
+                    da empresa.
+
+                </p>
+
+            </div>
+
+
+            <div class="case-body">
+
+                <h5 class="fw-bold mb-3">
+                    Desenvolvimento de uma solução personalizada
+                </h5>
+
+                <p>
+
+                    Desenvolvimento de um portal web para centralizar
+                    informações e facilitar o acompanhamento de processos
+                    pelos usuários.
+
+                    A solução foi construída sob medida para atender
+                    às necessidades específicas da operação.
+
+                </p>
+
+
+                <div class="mt-4">
+
+                    <span class="tech-tag">
+                        Python
+                    </span>
+
+                    <span class="tech-tag">
+                        Django
+                    </span>
+
+                    <span class="tech-tag">
+                        MySQL
+                    </span>
+
+                    <span class="tech-tag">
+                        APIs
+                    </span>
+
+                    <span class="tech-tag">
+                        AWS
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="section" id="sobre">
+
+    <div class="container">
+
+        <div class="about-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <h2 class="mb-4">
+                        Sobre mim
+                    </h2>
+
+                    <p>
+
+                        Sou profissional de tecnologia especializado no
+                        desenvolvimento de soluções para automação,
+                        integração de sistemas e análise de dados.
+
+                    </p>
+
+                    <p>
+
+                        Trabalho na identificação de processos que podem
+                        ser melhorados através da tecnologia, desenvolvendo
+                        soluções personalizadas que reduzem atividades
+                        manuais, organizam informações e aumentam a
+                        eficiência operacional.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Vamos automatizar seu processo?
+        </h2>
+
+        <p>
+
+            Me conte qual processo está consumindo tempo da sua equipe.
+            Podemos analisar juntos se existe uma oportunidade de
+            automação ou integração.
+
+        </p>
+
+        <a href="https://wa.me/5511970907249"
+           target="_blank"
+           class="btn-cta">
+
+            Falar comigo pelo WhatsApp →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container text-center">
+
+        <strong>
+            Fábio Soares
+        </strong>
+
+        <br>
+
+        Automação • Integração • Dados
+
+        <div class="mt-2">
+
+            © 2026 — Todos os direitos reservados.
+
+        </div>
+
+    </div>
+
+</footer>
+
 
 </body>
 
-</html> 
+</html>
