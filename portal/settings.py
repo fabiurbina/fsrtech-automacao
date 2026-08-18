@@ -35,11 +35,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'fsrtech-automacao-production.up.railway.app',
+    'fsrtech.com.br',
     'www.fsrtech.com.br',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "www.fsrtech.com.br"
+    'https://fsrtech.com.br',
+    'https://www.fsrtech.com.br',
 ]
 
 # Application definition
