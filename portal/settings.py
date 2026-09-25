@@ -44,7 +44,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.fsrtech.com.br',
 ]
 
-# Application definition
+# Application definit   ion
 
 INSTALLED_APPS = [
     'django.contrib.admin',

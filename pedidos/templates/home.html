@@ -9,10 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fábio Soares | Automação, Integração e Dados</title>
+    <title>FSR Tech | Criação de Sites Profissionais sem Custo de Criação</title>
 
-    <meta name="description"
-          content="Soluções em RPA, automação de processos, integração entre sistemas, APIs, Webhooks, Power BI e desenvolvimento de sistemas.">
+    <meta name="description" content="Criação de sites profissionais sem custo de criação. A FSR Tech desenvolve seu site, você aprova e só depois contrata hospedagem e manutenção.">
 
     <link rel="icon"
           type="image/png"
@@ -448,6 +447,100 @@
         }
 
 
+
+        /* =========================
+           OFERTA DE SITES
+        ========================= */
+
+        .offer-section {
+            background: #f8fafc;
+        }
+
+        .offer-card {
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            border-radius: 24px;
+            padding: 42px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: .82rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .offer-price {
+            font-size: 3.4rem;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -2px;
+        }
+
+        .offer-price small {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .offer-list {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0 0;
+        }
+
+        .offer-list li {
+            padding: 9px 0;
+            color: #475569;
+        }
+
+        .offer-list li::before {
+            content: "✓";
+            color: #16a34a;
+            font-weight: 800;
+            margin-right: 10px;
+        }
+
+        .steps-card {
+            height: 100%;
+            padding: 28px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .step-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .site-cta {
+            margin-top: 35px;
+            padding: 22px;
+            border-radius: 16px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+        .site-cta strong {
+            color: var(--dark);
+        }
+
         /* =========================
            MOBILE
         ========================= */
@@ -514,16 +607,16 @@
 
         <div class="d-flex align-items-center">
 
-            <a href="#servicos" class="nav-link-custom">
-                Serviços
+            <a href="#como-funciona" class="nav-link-custom">
+                Como funciona
+            </a>
+
+            <a href="#planos" class="nav-link-custom">
+                Planos
             </a>
 
             <a href="#projetos" class="nav-link-custom">
                 Projetos
-            </a>
-
-            <a href="#sobre" class="nav-link-custom">
-                Sobre
             </a>
 
             <a href="https://wa.me/5511970907249"
@@ -550,53 +643,155 @@
     <div class="container">
 
         <span class="hero-badge">
-            Automação • Integração • Dados
+            SITE PROFISSIONAL • CRIAÇÃO SEM CUSTO
         </span>
 
         <h1>
-            Automatize processos.
-            <span>Conecte sistemas.</span>
-            Gere resultados.
+            Seu site profissional.
+            <span>Antes de você contratar.</span>
         </h1>
 
         <p class="hero-description">
-
-            Desenvolvo soluções personalizadas para eliminar tarefas manuais,
-            integrar sistemas e transformar dados em informações úteis para
-            o seu negócio.
-
+            Nós criamos uma primeira versão personalizada para sua empresa.
+            Você conhece o resultado, navega pelo site e decide com tranquilidade.
+            Se gostar, colocamos tudo no ar com hospedagem e manutenção mensal.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="https://wa.me/5511970907249"
+            <a href="https://wa.me/5511970907249?text=Olá!%20Quero%20conhecer%20a%20demonstração%20do%20meu%20site."
                target="_blank"
                class="btn-primary-custom">
-
-                Quero automatizar meu processo →
-
+                Quero meu site →
             </a>
 
-            <a href="#servicos"
+            <a href="#como-funciona"
                class="btn-outline-custom">
-
-                Conhecer serviços
-
+                Como funciona
             </a>
 
         </div>
 
-
         <div class="hero-technologies">
+            <span>✓ Criação sem custo</span>
+            <span>✓ Você aprova primeiro</span>
+            <span>✓ Sem compromisso</span>
+        </div>
 
-            Tecnologias e soluções:
+    </div>
 
-            <span>Python</span>
-            <span>Power BI</span>
-            <span>APIs</span>
-            <span>Webhooks</span>
-            <span>SQL</span>
-            <span>AWS</span>
+</section>
+
+
+<!-- =========================
+     OFERTA
+========================= -->
+
+<section class="section offer-section" id="como-funciona">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <span class="offer-badge">VOCÊ NÃO CONTRATA NO ESCURO</span>
+
+                <h2 class="section-title">
+                    Veja seu site funcionando antes de decidir.
+                </h2>
+
+                <p class="section-subtitle">
+                    A primeira versão do seu site é desenvolvida para você avaliar.
+                    Você conhece o visual, a estrutura e a experiência antes de começar
+                    a pagar pela hospedagem e manutenção.
+                </p>
+
+                <div class="row g-3 mt-4">
+
+                    <div class="col-md-6">
+                        <div class="steps-card">
+                            <div class="step-number">01</div>
+                            <h3 class="fw-bold">Você conta sua ideia</h3>
+                            <p class="text-secondary mb-0">
+                                Envie as informações da sua empresa e o que gostaria
+                                de apresentar no site.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="steps-card">
+                            <div class="step-number">02</div>
+                            <h3 class="fw-bold">Nós desenvolvemos</h3>
+                            <p class="text-secondary mb-0">
+                                Criamos uma primeira versão personalizada para você conhecer.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="steps-card">
+                            <div class="step-number">03</div>
+                            <h3 class="fw-bold">Você avalia</h3>
+                            <p class="text-secondary mb-0">
+                                Navegue pelo projeto e veja como sua empresa pode aparecer online.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="steps-card">
+                            <div class="step-number">04</div>
+                            <h3 class="fw-bold">Gostou? Colocamos no ar</h3>
+                            <p class="text-secondary mb-0">
+                                Você contrata o plano mensal e cuidamos da publicação e manutenção.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5" id="planos">
+
+                <div class="offer-card">
+
+                    <div class="offer-badge">CRIAÇÃO</div>
+
+                    <div class="offer-price">
+                        R$ 0 <small>para criar</small>
+                    </div>
+
+                    <p class="text-secondary mt-3">
+                        Você só começa a pagar depois de aprovar o projeto.
+                    </p>
+
+                    <ul class="offer-list">
+                        <li>Site profissional e responsivo</li>
+                        <li>Personalização para sua empresa</li>
+                        <li>Hospedagem e SSL</li>
+                        <li>Manutenção e pequenas alterações</li>
+                        <li>Suporte após a publicação</li>
+                    </ul>
+
+                    <div class="site-cta">
+                        <strong>Quer ver uma primeira versão?</strong>
+                        <div class="text-secondary mt-1 mb-3">
+                            Fale conosco e conte sobre sua empresa.
+                        </div>
+
+                        <a href="https://wa.me/5511970907249?text=Olá!%20Quero%20solicitar%20uma%20demonstração%20de%20site%20para%20minha%20empresa."
+                           target="_blank"
+                           class="btn-primary-custom w-100 text-center">
+                            Solicitar demonstração
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -616,13 +811,12 @@
         <div class="mb-5">
 
             <h2 class="section-title">
-                O que eu faço
+                Também desenvolvemos soluções sob medida
             </h2>
 
             <p class="section-subtitle">
 
-                Soluções desenvolvidas de acordo com a necessidade
-                e os processos de cada empresa.
+                Além dos sites, desenvolvemos automações, integrações e sistemas para empresas que precisam ir além.
 
             </p>
 
@@ -1028,23 +1222,18 @@
     <div class="container">
 
         <h2>
-            Vamos automatizar seu processo?
+            Vamos criar seu site?
         </h2>
 
         <p>
-
-            Me conte qual processo está consumindo tempo da sua equipe.
-            Podemos analisar juntos se existe uma oportunidade de
-            automação ou integração.
-
+            Conte um pouco sobre sua empresa. Nós preparamos uma primeira versão
+            para você conhecer o projeto antes de contratar.
         </p>
 
-        <a href="https://wa.me/5511970907249"
+        <a href="https://wa.me/5511970907249?text=Olá!%20Quero%20criar%20um%20site%20para%20minha%20empresa."
            target="_blank"
            class="btn-cta">
-
-            Falar comigo pelo WhatsApp →
-
+            Quero meu site →
         </a>
 
     </div>
@@ -1066,7 +1255,7 @@
 
         <br>
 
-        Automação • Integração • Dados
+        Sites profissionais • Hospedagem • Manutenção
 
         <div class="mt-2">
 
